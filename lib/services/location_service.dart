@@ -1,6 +1,7 @@
 // services/location_service.dart
 import 'package:geolocator/geolocator.dart';
 import 'dart:math' show cos, sqrt, asin;
+import '../services/location_service.dart';
 
 class LocationService {
   static Position? _currentPosition;

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../features/home/home_controller.dart';
 import '../features/report/report_button.dart';
+import '../screens/home_screen.dart';
+import '../widgets/quick_action_buttons.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
