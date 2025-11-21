@@ -1,0 +1,34 @@
+lib/
+├── main.dart
+├── screens/
+│   └── home_screen.dart
+├── features/
+│   ├── home/
+│   │   └── home_controller.dart          ✅ Separates home logic
+│   └── report/
+│       ├── report_model.dart              ✅ Data model
+│       ├── report_service.dart            ✅ Firebase/API calls
+│       ├── report_controller.dart         ✅ Business logic
+│       ├── report_popup.dart              ✅ View
+│       └── report_button.dart             ✅ Reusable widget
+└── widgets/
+    ├── animated_banner.dart
+    ├── emergency_buttons_grid.dart
+    ├── scrolling_advice_banner.dart
+    ├── quick_action_buttons.dart
+    └── emergency_type_selector.dart      ✅ Extracted for reusability
+
+    Commit
+
+    Local
+
+
+
+    PS D:\TestGitAppication> git remote add origin https://github.com/thecodecity/android-test.git
+    PS D:\TestGitAppication> git remote -v
+    origin https://github.com/thecodecity/android-test.git (fetch)
+    origin https://github.com/thecodecity/android.test.git (push)
+    PS D:\TestGitAppication> git push origin master
+
+
+    To https://qithub.com/thecodecity/andreid-test,git
