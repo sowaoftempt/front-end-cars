@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '../report/report_popup.dart';
 import '../../widgets/animated_banner.dart';
-import '../../widgets/emergency_buttons_grid.dart';
+import '../../widgets/emergency_button_grid.dart';
 import '../../widgets/scrolling_advice_banner.dart';
 import '../../widgets/quick_action_buttons.dart';
 

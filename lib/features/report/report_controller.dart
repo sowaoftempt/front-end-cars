@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'report_model.dart';
 import 'report_service.dart';
-import '../';
+
 
 class ReportController {
   String selectedType = '';
