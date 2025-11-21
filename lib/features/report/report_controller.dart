@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'report_model.dart';
 import 'report_service.dart';
-import '../report/report_controller.dart';
 import '../../widgets/emergency_button_grid.dart';
-
+import '../../services/location_service.dart';
 
 class ReportController {
   String selectedType = '';
@@ -142,10 +141,17 @@ class ReportController {
       return;
     }
 
+    // Get user location for required lat/lng fields
+    final userLocation = await LocationService.getCurrentLocationMap();
+    final double lat = (userLocation['lat'] as double?) ?? 0.0;
+    final double lng = (userLocation['lng'] as double?) ?? 0.0;
+
     final report = ReportModel(
       type: selectedType,
       description: descriptionController.text,
       photoUrl: null, // TODO: Add photo URL after implementing camera
+      lat: lat,
+      lng: lng,
     );
 
     try {
@@ -155,7 +161,7 @@ class ReportController {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('✅ Report submitted successfully!'),
+            content: Text('\u2705 Report submitted successfully!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -164,7 +170,7 @@ class ReportController {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('❌ Error: $e'),
+            content: Text('\u274c Error: $e'),
             backgroundColor: Colors.red,
           ),
         );

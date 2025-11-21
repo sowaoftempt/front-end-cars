@@ -1,4 +1,6 @@
 // features/report/report_model.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ReportModel {
   final String type;
   final String description;

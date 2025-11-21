@@ -1,4 +1,5 @@
 // services/notification_service.dart
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'location_service.dart';
@@ -61,7 +62,7 @@ class NotificationService {
       );
 
       await showNotification(
-        title: '🚨 ${incident['title'] ?? 'Emergency Alert'}',
+        title: '\ud83d\udea8 ${incident['title'] ?? 'Emergency Alert'}',
         body: '${distance.toStringAsFixed(1)}km away - ${incident['description'] ?? 'Check the app for details'}',
         payload: incident['id'],
       );
@@ -73,14 +74,15 @@ class NotificationService {
     required String body,
     String? payload,
   }) async {
-    const androidDetails = AndroidNotificationDetails(
+    // Use non-const so Color() is recognized properly with the flutter/material import
+    final androidDetails = AndroidNotificationDetails(
       'emergency_alerts',
       'Emergency Alerts',
       channelDescription: 'Notifications for nearby emergencies',
       importance: Importance.max,
       priority: Priority.high,
       ticker: 'Emergency',
-      color: Color(0xFFFF0000),
+      color: const Color(0xFFFF0000),
     );
 
     const iosDetails = DarwinNotificationDetails(
@@ -89,7 +91,7 @@ class NotificationService {
       presentSound: true,
     );
 
-    const details = NotificationDetails(
+    final details = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );

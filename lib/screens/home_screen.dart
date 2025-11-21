@@ -1,43 +1,12 @@
 import 'package:flutter/material.dart';
 import '../features/home/home_controller.dart';
 import '../features/report/report_button.dart';
-import '../screens/home_screen.dart';
 import '../widgets/quick_action_buttons.dart';
+import '../widgets/animated_banner.dart';
+import '../widgets/emergency_button_grid.dart';
+import '../widgets/scrolling_advice_banner.dart';
+import '../features/report/report_popup.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late HomeController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = HomeController();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: _controller.buildHomeContent(context),
-      ),
-      bottomNavigationBar: _controller.buildBottomNav(context, (index) {
-        setState(() {});
-      }),
-    );
-  }
-}
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
