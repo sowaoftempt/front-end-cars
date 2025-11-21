@@ -3,6 +3,7 @@ import 'report_model.dart';
 import 'report_service.dart';
 import '../../widgets/emergency_button_grid.dart';
 import '../../services/location_service.dart';
+import '../../widgets/emergency_type_selector.dart';
 
 class ReportController {
   String selectedType = '';
