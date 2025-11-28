@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import '../features/home/home_controller.dart';
 import '../features/report/report_button.dart';
 import '../features/report/report_popup.dart';
+import '../features/community/community_activities_screen.dart';
+import '../screens/incidents_map_screen.dart';
 
 class QuickActionButtons extends StatelessWidget {
   const QuickActionButtons({super.key});
@@ -17,7 +19,15 @@ class QuickActionButtons extends StatelessWidget {
             label: 'My Community',
             color1: const Color(0xFFFF0000),
             color2: const Color(0xFFFF4500),
-            onTap: () {},
+            onTap: () {
+              print('🔥 My Community button tapped!');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CommunityActivitiesScreen(),
+                ),
+              );
+            },
           ),
           const SizedBox(height: 12),
           _QuickActionButton(
@@ -29,6 +39,22 @@ class QuickActionButtons extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) => const ReportPopup(),
+              );
+            },
+          ),
+          const SizedBox(height: 12),
+          _QuickActionButton(
+            icon: Icons.map_outlined,
+            label: 'My Map',
+            color1: const Color(0xFF3B82F6),
+            color2: const Color(0xFF2563EB),
+            onTap: () {
+              print('🗺️ My Map button tapped!');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const IncidentsMapScreen(),
+                ),
               );
             },
           ),
@@ -56,7 +82,10 @@ class _QuickActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        print('Button tapped: $label');
+        onTap();
+      },
       child: Container(
         height: 70,
         decoration: BoxDecoration(
@@ -66,7 +95,7 @@ class _QuickActionButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.red.withOpacity(0.3),
+              color: color1.withOpacity(0.3),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),

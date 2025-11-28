@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import '../features/home/home_controller.dart';
 import '../features/report/report_button.dart';
 import '../widgets/quick_action_buttons.dart';
@@ -6,6 +6,7 @@ import '../widgets/animated_banner.dart';
 import '../widgets/emergency_button_grid.dart';
 import '../widgets/scrolling_advice_banner.dart';
 import '../features/report/report_popup.dart';
+import '../features/community/community_activities_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

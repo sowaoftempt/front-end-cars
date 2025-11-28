@@ -1,16 +1,30 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
-import '../screens/home_screen.dart';
+import 'screens/home_screen.dart';
+import 'config/firebase_options.dart';
+import 'services/location_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase (you'll need to add firebase_options.dart)
+  // Initialize Firebase
   try {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    print('✅ Firebase initialized successfully');
   } catch (e) {
-    print('Firebase init failed: $e');
+    print('⚠️ Firebase init failed: $e');
+    // Continue anyway - app will work without Firebase for now
+  }
+
+  // Initialize location service
+  try {
+    await LocationService.initialize();
+    print('✅ Location service initialized');
+  } catch (e) {
+    print('⚠️ Location init failed: $e');
   }
 
   SystemChrome.setSystemUIOverlayStyle(

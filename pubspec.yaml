@@ -1,4 +1,4 @@
-name: magain
+﻿name: magain
 description: "Emergency reporting app with proximity notifications"
 publish_to: 'none'
 version: 1.0.0+1
@@ -17,9 +17,20 @@ dependencies:
 
   # Location Services
   geolocator: ^13.0.2
+  geocoding: ^3.0.0
+
 
   # Notifications
   flutter_local_notifications: ^18.0.1
+
+  # Media
+  cached_network_image: ^3.3.1
+  video_player: ^2.8.2
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+  flutter_map_heatmap: ^0.0.8
+  image_picker: ^1.0.7
+  intl: ^0.18.1
 
   # UI
   cupertino_icons: ^1.0.8
@@ -31,3 +42,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+

@@ -1,3 +1,5 @@
+//emergency_type_selector.dart
+
 import 'package:flutter/material.dart';
 
 typedef TypeSelectedCallback = void Function(String type);

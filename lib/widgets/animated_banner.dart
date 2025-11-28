@@ -1,3 +1,4 @@
+//animated_banner.dart
 import 'package:flutter/material.dart';
 import '../features/home/home_controller.dart';
 import '../features/report/report_button.dart';
